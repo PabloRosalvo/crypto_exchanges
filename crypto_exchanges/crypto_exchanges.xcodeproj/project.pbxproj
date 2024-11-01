@@ -6,6 +6,12 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		22A9B9E1AFA66C3838A869B1 /* Pods_crypto_exchangesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D3097BB4C4F61717888C24F /* Pods_crypto_exchangesTests.framework */; };
+		3D3E0EBFA2B0A742D74D4483 /* Pods_crypto_exchanges.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F9D881F4938706ACE806B1C /* Pods_crypto_exchanges.framework */; };
+		4E69E94DCA7CEDB49778DA95 /* Pods_crypto_exchanges_crypto_exchangesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9160EB9DC0A02B3647CB31A8 /* Pods_crypto_exchanges_crypto_exchangesUITests.framework */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		25A6CC062CD448F1001F94A7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -24,9 +30,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0D3097BB4C4F61717888C24F /* Pods_crypto_exchangesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_crypto_exchangesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		11AE39A8A6A1D82328F73632 /* Pods-crypto_exchanges-crypto_exchangesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-crypto_exchanges-crypto_exchangesUITests.debug.xcconfig"; path = "Target Support Files/Pods-crypto_exchanges-crypto_exchangesUITests/Pods-crypto_exchanges-crypto_exchangesUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		1F022DC4263EE62982F1C486 /* Pods-crypto_exchanges-crypto_exchangesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-crypto_exchanges-crypto_exchangesUITests.release.xcconfig"; path = "Target Support Files/Pods-crypto_exchanges-crypto_exchangesUITests/Pods-crypto_exchanges-crypto_exchangesUITests.release.xcconfig"; sourceTree = "<group>"; };
 		25A6CBEF2CD448F0001F94A7 /* crypto_exchanges.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = crypto_exchanges.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25A6CC052CD448F1001F94A7 /* crypto_exchangesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = crypto_exchangesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		25A6CC0F2CD448F1001F94A7 /* crypto_exchangesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = crypto_exchangesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4478724D5A3F768641F3B027 /* Pods-crypto_exchangesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-crypto_exchangesTests.release.xcconfig"; path = "Target Support Files/Pods-crypto_exchangesTests/Pods-crypto_exchangesTests.release.xcconfig"; sourceTree = "<group>"; };
+		5AA9C313454B94BAC300ABAA /* Pods-crypto_exchanges.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-crypto_exchanges.release.xcconfig"; path = "Target Support Files/Pods-crypto_exchanges/Pods-crypto_exchanges.release.xcconfig"; sourceTree = "<group>"; };
+		6F9D881F4938706ACE806B1C /* Pods_crypto_exchanges.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_crypto_exchanges.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9160EB9DC0A02B3647CB31A8 /* Pods_crypto_exchanges_crypto_exchangesUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_crypto_exchanges_crypto_exchangesUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA7FC071A9A628A70DB02A0E /* Pods-crypto_exchangesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-crypto_exchangesTests.debug.xcconfig"; path = "Target Support Files/Pods-crypto_exchangesTests/Pods-crypto_exchangesTests.debug.xcconfig"; sourceTree = "<group>"; };
+		BC2B396581A0D536AC5D50F5 /* Pods-crypto_exchanges.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-crypto_exchanges.debug.xcconfig"; path = "Target Support Files/Pods-crypto_exchanges/Pods-crypto_exchanges.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -65,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D3E0EBFA2B0A742D74D4483 /* Pods_crypto_exchanges.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22A9B9E1AFA66C3838A869B1 /* Pods_crypto_exchangesTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E69E94DCA7CEDB49778DA95 /* Pods_crypto_exchanges_crypto_exchangesUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +110,8 @@
 				25A6CC082CD448F1001F94A7 /* crypto_exchangesTests */,
 				25A6CC122CD448F1001F94A7 /* crypto_exchangesUITests */,
 				25A6CBF02CD448F0001F94A7 /* Products */,
+				2E66C4EF5B6896C4AA12729E /* Pods */,
+				BBEA1BADD109EDE3FE78CD19 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,6 +125,29 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		2E66C4EF5B6896C4AA12729E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BC2B396581A0D536AC5D50F5 /* Pods-crypto_exchanges.debug.xcconfig */,
+				5AA9C313454B94BAC300ABAA /* Pods-crypto_exchanges.release.xcconfig */,
+				11AE39A8A6A1D82328F73632 /* Pods-crypto_exchanges-crypto_exchangesUITests.debug.xcconfig */,
+				1F022DC4263EE62982F1C486 /* Pods-crypto_exchanges-crypto_exchangesUITests.release.xcconfig */,
+				AA7FC071A9A628A70DB02A0E /* Pods-crypto_exchangesTests.debug.xcconfig */,
+				4478724D5A3F768641F3B027 /* Pods-crypto_exchangesTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		BBEA1BADD109EDE3FE78CD19 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6F9D881F4938706ACE806B1C /* Pods_crypto_exchanges.framework */,
+				9160EB9DC0A02B3647CB31A8 /* Pods_crypto_exchanges_crypto_exchangesUITests.framework */,
+				0D3097BB4C4F61717888C24F /* Pods_crypto_exchangesTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -112,9 +155,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 25A6CC182CD448F1001F94A7 /* Build configuration list for PBXNativeTarget "crypto_exchanges" */;
 			buildPhases = (
+				9BA102BAAEE3CE1ECEC9F5E2 /* [CP] Check Pods Manifest.lock */,
 				25A6CBEB2CD448F0001F94A7 /* Sources */,
 				25A6CBEC2CD448F0001F94A7 /* Frameworks */,
 				25A6CBED2CD448F0001F94A7 /* Resources */,
+				4B746F1824FA7CDB57D7C5F0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -124,8 +169,6 @@
 				25A6CBF12CD448F0001F94A7 /* crypto_exchanges */,
 			);
 			name = crypto_exchanges;
-			packageProductDependencies = (
-			);
 			productName = crypto_exchanges;
 			productReference = 25A6CBEF2CD448F0001F94A7 /* crypto_exchanges.app */;
 			productType = "com.apple.product-type.application";
@@ -134,9 +177,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 25A6CC1D2CD448F1001F94A7 /* Build configuration list for PBXNativeTarget "crypto_exchangesTests" */;
 			buildPhases = (
+				420E98629BEC200F8738DA57 /* [CP] Check Pods Manifest.lock */,
 				25A6CC012CD448F1001F94A7 /* Sources */,
 				25A6CC022CD448F1001F94A7 /* Frameworks */,
 				25A6CC032CD448F1001F94A7 /* Resources */,
+				E5EFB247804556E1FDCEE7F7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -147,8 +192,6 @@
 				25A6CC082CD448F1001F94A7 /* crypto_exchangesTests */,
 			);
 			name = crypto_exchangesTests;
-			packageProductDependencies = (
-			);
 			productName = crypto_exchangesTests;
 			productReference = 25A6CC052CD448F1001F94A7 /* crypto_exchangesTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -157,9 +200,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 25A6CC202CD448F1001F94A7 /* Build configuration list for PBXNativeTarget "crypto_exchangesUITests" */;
 			buildPhases = (
+				2F428405A02FA6A724054AE3 /* [CP] Check Pods Manifest.lock */,
 				25A6CC0B2CD448F1001F94A7 /* Sources */,
 				25A6CC0C2CD448F1001F94A7 /* Frameworks */,
 				25A6CC0D2CD448F1001F94A7 /* Resources */,
+				A0477E93E22C8E3D4E24062B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -170,8 +215,6 @@
 				25A6CC122CD448F1001F94A7 /* crypto_exchangesUITests */,
 			);
 			name = crypto_exchangesUITests;
-			packageProductDependencies = (
-			);
 			productName = crypto_exchangesUITests;
 			productReference = 25A6CC0F2CD448F1001F94A7 /* crypto_exchangesUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
@@ -244,6 +287,126 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2F428405A02FA6A724054AE3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-crypto_exchanges-crypto_exchangesUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		420E98629BEC200F8738DA57 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-crypto_exchangesTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4B746F1824FA7CDB57D7C5F0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-crypto_exchanges/Pods-crypto_exchanges-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-crypto_exchanges/Pods-crypto_exchanges-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-crypto_exchanges/Pods-crypto_exchanges-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9BA102BAAEE3CE1ECEC9F5E2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-crypto_exchanges-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A0477E93E22C8E3D4E24062B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-crypto_exchanges-crypto_exchangesUITests/Pods-crypto_exchanges-crypto_exchangesUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-crypto_exchanges-crypto_exchangesUITests/Pods-crypto_exchanges-crypto_exchangesUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-crypto_exchanges-crypto_exchangesUITests/Pods-crypto_exchanges-crypto_exchangesUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E5EFB247804556E1FDCEE7F7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-crypto_exchangesTests/Pods-crypto_exchangesTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-crypto_exchangesTests/Pods-crypto_exchangesTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-crypto_exchangesTests/Pods-crypto_exchangesTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		25A6CBEB2CD448F0001F94A7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -284,6 +447,7 @@
 /* Begin XCBuildConfiguration section */
 		25A6CC192CD448F1001F94A7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BC2B396581A0D536AC5D50F5 /* Pods-crypto_exchanges.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -312,6 +476,7 @@
 		};
 		25A6CC1A2CD448F1001F94A7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5AA9C313454B94BAC300ABAA /* Pods-crypto_exchanges.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -375,7 +540,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -438,7 +603,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -459,6 +624,7 @@
 		};
 		25A6CC1E2CD448F1001F94A7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AA7FC071A9A628A70DB02A0E /* Pods-crypto_exchangesTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -477,6 +643,7 @@
 		};
 		25A6CC1F2CD448F1001F94A7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4478724D5A3F768641F3B027 /* Pods-crypto_exchangesTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -495,6 +662,7 @@
 		};
 		25A6CC212CD448F1001F94A7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 11AE39A8A6A1D82328F73632 /* Pods-crypto_exchanges-crypto_exchangesUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -511,6 +679,7 @@
 		};
 		25A6CC222CD448F1001F94A7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1F022DC4263EE62982F1C486 /* Pods-crypto_exchanges-crypto_exchangesUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;

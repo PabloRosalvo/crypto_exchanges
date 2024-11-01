@@ -92,13 +92,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Go to home"
+            "value" : "Explore information"
           }
         },
         "pt-BR" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Ir para Home "
+            "state" : "translated",
+            "value" : "Explorar Informações"
           }
         }
       }

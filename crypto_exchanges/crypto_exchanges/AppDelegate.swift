@@ -4,22 +4,20 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var homeCoordinator: HomeCoordinator?
+    var appCoordinator: AppCoordinator?
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        self.initApplication()
-        return true
-    }
-
-    func initApplication() {
-        let window = UIWindow(frame: UIScreen.main.bounds)
-        let navigationController = UINavigationController()
+    func application(
+        _ application: UIApplication,
+        didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
+    ) -> Bool {
         
-        homeCoordinator = HomeCoordinator(navigationController: navigationController)
-        homeCoordinator?.start()
-
-        window.rootViewController = navigationController
-        self.window = window
-        window.makeKeyAndVisible()
+        window = UIWindow(frame: UIScreen.main.bounds)
+        
+        if let window = window {
+            appCoordinator = AppCoordinator(window: window)
+            appCoordinator?.start()
+        }
+        
+        return true
     }
 }

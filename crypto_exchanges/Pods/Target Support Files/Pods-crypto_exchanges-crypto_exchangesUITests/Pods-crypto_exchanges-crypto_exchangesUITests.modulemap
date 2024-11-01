@@ -1,0 +1,6 @@
+framework module Pods_crypto_exchanges_crypto_exchangesUITests {
+  umbrella header "Pods-crypto_exchanges-crypto_exchangesUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
