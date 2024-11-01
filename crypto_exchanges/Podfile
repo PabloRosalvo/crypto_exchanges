@@ -6,7 +6,8 @@ target 'crypto_exchanges' do
   use_frameworks!
   pod 'RxSwift'
   pod 'RxCocoa'
-  
+  pod 'Kingfisher'
+
   # Pods for crypto_exchanges
 
   target 'crypto_exchangesTests' do

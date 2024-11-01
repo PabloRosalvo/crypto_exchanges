@@ -13,6 +13,7 @@ PODS:
   - iOSSnapshotTestCase/Core (8.0.0)
   - iOSSnapshotTestCase/SwiftSupport (8.0.0):
     - iOSSnapshotTestCase/Core
+  - Kingfisher (8.1.0)
   - Nimble (13.6.0):
     - CwlPreconditionTesting (~> 2.2.0)
   - Nimble-Snapshots (9.8.0):
@@ -29,6 +30,7 @@ PODS:
   - RxSwift (6.7.1)
 
 DEPENDENCIES:
+  - Kingfisher
   - Nimble
   - Nimble-Snapshots
   - Quick
@@ -43,6 +45,7 @@ SPEC REPOS:
     - CwlPosixPreconditionTesting
     - CwlPreconditionTesting
     - iOSSnapshotTestCase
+    - Kingfisher
     - Nimble
     - Nimble-Snapshots
     - Quick
@@ -57,6 +60,7 @@ SPEC CHECKSUMS:
   CwlPosixPreconditionTesting: ecd095aa2129e740b44301c34571e8d85906fb88
   CwlPreconditionTesting: 67a0047dd4de4382b93442c0e3f25207f984f35a
   iOSSnapshotTestCase: a670511f9ee3829c2b9c23e6e68f315fd7b6790f
+  Kingfisher: dfbf20b6249ed4ef6f18d6a96c847bce860bdb95
   Nimble: abf7d6cd9824ec284a3654cbef4d0dd3c79d45a3
   Nimble-Snapshots: 240ea76ee8e52dfc1387b8d0d9bf1db3420cabbd
   Quick: b8bec97cd4b9f21da0472d45580f763b801fc353
@@ -64,6 +68,6 @@ SPEC CHECKSUMS:
   RxRelay: 4151ba01152436b08271e08410135e099880eae5
   RxSwift: b9a93a26031785159e11abd40d1a55bcb8057e52
 
-PODFILE CHECKSUM: 93e0d278a1cfa5f7df252a8a2b6416f5cf079be7
+PODFILE CHECKSUM: 4d96b2522e6bb70236102be37193da2351ac6294
 
 COCOAPODS: 1.16.2
