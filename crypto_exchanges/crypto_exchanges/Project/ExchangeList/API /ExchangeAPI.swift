@@ -11,7 +11,7 @@ public class ExchangeAPI: ExchangeAPIProtocol {
     private let requestManager: RequestManagerProtocol
     
     enum BaseUrl {
-        static let url = "https://rest.coinapi.o"
+        static let url = "https://rest.coinapi.io"
     }
     
     init(requestManager: RequestManagerProtocol = RequestManager()) {
