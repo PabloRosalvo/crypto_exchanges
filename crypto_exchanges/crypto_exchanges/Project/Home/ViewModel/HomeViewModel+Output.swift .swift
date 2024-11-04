@@ -5,9 +5,9 @@ extension HomeViewModel {
     struct Output: HomeViewModelOutput {
         let titleText: Driver<String>
         let descriptionText: Driver<String>
-        let navigationEvent: Signal<NavigationEvent>
+        let navigationEvent: Signal<NavigationEventExchangeHome>
         
-        init(navigationEventRelay: PublishRelay<NavigationEvent>,
+        init(navigationEventRelay: PublishRelay<NavigationEventExchangeHome>,
              titleTextRelay: BehaviorRelay<String>,
              descriptionTextRelay: BehaviorRelay<String>) {
             self.navigationEvent = navigationEventRelay.asSignal()

@@ -5,7 +5,7 @@ import RxCocoa
 final class ExchangeView: UIView {
     
     let searchBarTextRelay = BehaviorRelay<String?>(value: nil)
-    let switchStateRelay = PublishRelay<(Int, Bool)>()
+    let switchStateRelay = BehaviorRelay<Set<Int>>(value: [])
     let selectedIndexRelay = PublishRelay<Int>()
     
     private let filterStackView: UIStackView = {
@@ -16,9 +16,10 @@ final class ExchangeView: UIView {
         return stackView
     }()
     
-    private let tableView: UITableView = {
+    let tableView: UITableView = {
         let tableView = UITableView()
         tableView.register(ExchangeCell.self)
+        tableView.backgroundColor = .customBackground
         return tableView
     }()
     
@@ -28,7 +29,6 @@ final class ExchangeView: UIView {
         return searchBar
     }()
     
-    private var listModel = BehaviorRelay<[Exchange]>(value: [])
     private let disposeBag = DisposeBag()
     
     override init(frame: CGRect = .zero) {
@@ -75,19 +75,11 @@ final class ExchangeView: UIView {
     }
     
     private func setupBindings() {
-        searchBar.rx.text
+         searchBar.rx.text
             .bind(to: searchBarTextRelay)
             .disposed(by: disposeBag)
         
-        listModel
-            .bind(to: tableView.rx.items(
-                cellIdentifier: ExchangeCell.reuseIdentifier,
-                cellType: ExchangeCell.self))
-        { _, model, cell in
-            cell.updateCell(model: model)
-        }.disposed(by: disposeBag)
-        
-        tableView.rx.itemSelected
+         tableView.rx.itemSelected
             .map { $0.row }
             .bind(to: selectedIndexRelay)
             .disposed(by: disposeBag)
@@ -95,10 +87,6 @@ final class ExchangeView: UIView {
     
     func bindFilterOptions(_ serviceTypes: [String]) {
         createFilterSwitches(for: serviceTypes)
-    }
-    
-    func loadModel(_ list: [Exchange]) {
-        listModel.accept(list)
     }
     
     private func createFilterSwitches(for serviceTypes: [String]) {
@@ -131,6 +119,12 @@ final class ExchangeView: UIView {
     }
     
     @objc private func switchChanged(_ sender: UISwitch) {
-        switchStateRelay.accept((sender.tag, sender.isOn))
+        var activeSwitches = switchStateRelay.value
+        if sender.isOn {
+            activeSwitches.insert(sender.tag)
+        } else {
+            activeSwitches.remove(sender.tag)
+        }
+        switchStateRelay.accept(activeSwitches)
     }
 }

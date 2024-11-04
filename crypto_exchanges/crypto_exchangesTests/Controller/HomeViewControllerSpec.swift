@@ -30,9 +30,9 @@ final class HomeViewControllerSpec: QuickSpec {
             }
             
             it("should trigger navigation event on button tap") {
-                var emittedEvent: NavigationEvent?
+                var emittedEvent: NavigationEventExchangeHome? = nil
                 
-                mockViewModel.output.navigationEvent
+                 mockViewModel.output.navigationEvent
                     .emit(onNext: { event in
                         emittedEvent = event
                     })
@@ -40,7 +40,7 @@ final class HomeViewControllerSpec: QuickSpec {
                 
                 mockViewModel.input.primaryButtonTapped.accept(())
                 
-                expect(emittedEvent).toEventually(equal(.goToListExchange))
+                expect(emittedEvent).toEventually(equal(.goToListExchange), timeout: .seconds(2))
             }
         }
     }

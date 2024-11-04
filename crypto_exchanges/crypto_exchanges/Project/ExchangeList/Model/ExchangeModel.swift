@@ -1,21 +1,22 @@
 import Foundation
 
-struct Exchange: Codable {
-    let exchangeID: String
-    let website: String
-    let name: String
-    let dataQuoteStart: Date
-    let dataQuoteEnd: Date
-    let dataOrderbookStart: Date
-    let dataOrderbookEnd: Date
-    let dataTradeStart: Date
-    let dataTradeEnd: Date
-    let dataSymbolsCount: Int
-    let volume1HrsUSD: Double
-    let volume1DayUSD: Double
-    let volume1MthUSD: Double
-    let rank: Int
-    
+public struct Exchange: Codable {
+    let exchangeID: String?
+    let website: String?
+    let name: String?
+    let dataQuoteStart: Date?
+    let dataQuoteEnd: Date?
+    let dataOrderbookStart: Date?
+    let dataOrderbookEnd: Date?
+    let dataTradeStart: Date?
+    let dataTradeEnd: Date?
+    let dataSymbolsCount: Int?
+    let volume1HrsUSD: Double?
+    let volume1DayUSD: Double?
+    let volume1MthUSD: Double?
+    let rank: Int?
+    let metricID: [String]?
+
     enum CodingKeys: String, CodingKey {
         case exchangeID = "exchange_id"
         case website
@@ -31,5 +32,6 @@ struct Exchange: Codable {
         case volume1DayUSD = "volume_1day_usd"
         case volume1MthUSD = "volume_1mth_usd"
         case rank
+        case metricID = "metric_id"
     }
 }

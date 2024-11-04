@@ -1,11 +1,7 @@
 import UIKit
 import RxSwift
 
-protocol HomeCoordinatorProtocol: AnyObject {
-    func handleNavigation(event: NavigationEvent)
-}
-
-class HomeCoordinator: HomeCoordinatorProtocol, Coordinator {
+class HomeCoordinator: Coordinator {
     weak var parentCoordinator: Coordinator?
     var navigationController: UINavigationController
     var childCoordinators = [Coordinator]()
@@ -18,6 +14,7 @@ class HomeCoordinator: HomeCoordinatorProtocol, Coordinator {
     func start() {
         let viewModel = HomeViewModel()
         let homeViewController = HomeFactory.makeHomeViewController(viewModel: viewModel)
+        
         viewModel.output.navigationEvent
             .emit(onNext: { [weak self] event in
                 self?.handleNavigation(event: event)
@@ -27,10 +24,12 @@ class HomeCoordinator: HomeCoordinatorProtocol, Coordinator {
         navigationController.setViewControllers([homeViewController], animated: false)
     }
     
-    func handleNavigation(event: NavigationEvent) {
+    func handleNavigation(event: NavigationEventExchangeHome) {
         switch event {
         case .goToListExchange:
-            print("Navigating to ListExchange")
+            let exchangeCoordinator = ExchangeCoordinator(navigationController: navigationController)
+            childCoordinators.append(exchangeCoordinator)
+            exchangeCoordinator.start()
         }
     }
 }

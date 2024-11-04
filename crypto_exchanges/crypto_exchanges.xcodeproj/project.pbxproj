@@ -52,6 +52,24 @@
 			);
 			target = 25A6CBEE2CD448F0001F94A7 /* crypto_exchanges */;
 		};
+		25C347052CD538A2003A4320 /* Exceptions for "crypto_exchanges" folder in "crypto_exchangesTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				JsonMock/Exchange/DefaultExchangeAPIService.swift,
+				"JsonMock/Exchange/json-exchange.json",
+				"JsonMock/ExchangeIcon/exchange-icon.json",
+			);
+			target = 25A6CC042CD448F1001F94A7 /* crypto_exchangesTests */;
+		};
+		25C347062CD538A2003A4320 /* Exceptions for "crypto_exchanges" folder in "crypto_exchangesUITests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				JsonMock/Exchange/DefaultExchangeAPIService.swift,
+				"JsonMock/Exchange/json-exchange.json",
+				"JsonMock/ExchangeIcon/exchange-icon.json",
+			);
+			target = 25A6CC0E2CD448F1001F94A7 /* crypto_exchangesUITests */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -59,6 +77,8 @@
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				25A6CC172CD448F1001F94A7 /* Exceptions for "crypto_exchanges" folder in "crypto_exchanges" target */,
+				25C347052CD538A2003A4320 /* Exceptions for "crypto_exchanges" folder in "crypto_exchangesTests" target */,
+				25C347062CD538A2003A4320 /* Exceptions for "crypto_exchanges" folder in "crypto_exchangesUITests" target */,
 			);
 			path = crypto_exchanges;
 			sourceTree = "<group>";

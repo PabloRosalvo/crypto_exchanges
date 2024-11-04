@@ -1,5 +1,5 @@
 import Foundation
 
-public enum NavigationEvent {
+public enum NavigationEventExchangeHome {
     case goToListExchange
 }

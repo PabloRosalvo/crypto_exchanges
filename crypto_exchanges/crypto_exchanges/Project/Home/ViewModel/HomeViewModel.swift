@@ -8,7 +8,7 @@ public protocol HomeViewModelInput {
 public protocol HomeViewModelOutput {
     var titleText: Driver<String> { get }
     var descriptionText: Driver<String> { get }
-    var navigationEvent: Signal<NavigationEvent> { get }
+    var navigationEvent: Signal<NavigationEventExchangeHome> { get }
 }
 
 public protocol HomeViewModelType {
@@ -19,7 +19,7 @@ public protocol HomeViewModelType {
 class HomeViewModel: HomeViewModelType {
     
     private let primaryButtonRelay = PublishRelay<Void>()
-    private let navigationRelay = PublishRelay<NavigationEvent>()
+    private let navigationRelay = PublishRelay<NavigationEventExchangeHome>()
     
     private let titleTextRelay = BehaviorRelay<String>(value: LocalizedString.titleHome.localized)
     private let descriptionTextRelay = BehaviorRelay<String>(value: LocalizedString.descripitionHome.localized)
@@ -30,15 +30,14 @@ class HomeViewModel: HomeViewModelType {
     var output: HomeViewModelOutput { return Output(navigationEventRelay: navigationRelay,
                                                     titleTextRelay: titleTextRelay,
                                                     descriptionTextRelay: descriptionTextRelay) }
-    
     init() {
         bindInputs()
     }
     
     private func bindInputs() {
-          primaryButtonRelay
-              .map { NavigationEvent.goToListExchange }
-              .bind(to: navigationRelay)
-              .disposed(by: disposeBag)
-      }
+        primaryButtonRelay
+            .map { NavigationEventExchangeHome.goToListExchange }
+            .bind(to: navigationRelay)
+            .disposed(by: disposeBag)
+    }
 }

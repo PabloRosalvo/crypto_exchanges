@@ -1,7 +1,7 @@
 import Foundation
 
-extension Bundle {
-    func loadJsonData(fileName: String, withExtension ext: String = "json") -> Data? {
+public extension Bundle {
+   public func loadJsonData(fileName: String, withExtension ext: String = "json") -> Data? {
         if let url = self.url(forResource: fileName, withExtension: ext) {
             do {
                 let data = try Data(contentsOf: url)

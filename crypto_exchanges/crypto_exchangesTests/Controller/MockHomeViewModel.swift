@@ -1,39 +1,59 @@
 import RxSwift
 import RxCocoa
 import crypto_exchanges
-import RxSwift
 
 class MockHomeViewModel: HomeViewModelType {
-    let primaryButtonTapped = PublishRelay<Void>()
-    private let navigationRelay = PublishRelay<NavigationEvent>()
-    
-    var input: HomeViewModelInput { return self }
-    var output: HomeViewModelOutput { return self }
-    
-    private let titleTextRelay = BehaviorRelay<String>(value: "Mock Title")
-    private let descriptionTextRelay = BehaviorRelay<String>(value: "Mock Description")
+    var primaryButtonTappedRelay = PublishRelay<Void>()
+    var titleTextRelay = BehaviorRelay<String>(value: "Mock Title")
+    var descriptionTextRelay = BehaviorRelay<String>(value: "Mock Description")
+    var navigationEventRelay = PublishRelay<NavigationEventExchangeHome>()
     
     private let disposeBag = DisposeBag()
     
+    var input: HomeViewModelInput {
+        return Input(primaryButtonTapped: primaryButtonTappedRelay)
+    }
+    
+    var output: HomeViewModelOutput {
+        return Output(
+            navigationEventRelay: navigationEventRelay,
+            titleTextRelay: titleTextRelay,
+            descriptionTextRelay: descriptionTextRelay
+        )
+    }
+    
     init() {
-        primaryButtonTapped
-            .map { NavigationEvent.goToListExchange }
-            .bind(to: navigationRelay)
+        primaryButtonTappedRelay
+            .map { NavigationEventExchangeHome.goToListExchange }
+            .bind(to: navigationEventRelay)
             .disposed(by: disposeBag)
     }
-}
-
-extension MockHomeViewModel: HomeViewModelInput, HomeViewModelOutput {
-    var navigationEvent: Signal<NavigationEvent> {
-        return navigationRelay.asSignal(onErrorSignalWith: .empty())
+    
+    struct Input: HomeViewModelInput {
+        var primaryButtonTapped: PublishRelay<Void>
     }
     
-    var titleText: Driver<String> {
-        return titleTextRelay.asDriver()
-    }
-    
-    var descriptionText: Driver<String> {
-        return descriptionTextRelay.asDriver()
+    struct Output: HomeViewModelOutput {
+        private let navigationEventRelay: PublishRelay<NavigationEventExchangeHome>
+        private let titleTextRelay: BehaviorRelay<String>
+        private let descriptionTextRelay: BehaviorRelay<String>
+        
+        init(navigationEventRelay: PublishRelay<NavigationEventExchangeHome>, titleTextRelay: BehaviorRelay<String>, descriptionTextRelay: BehaviorRelay<String>) {
+            self.navigationEventRelay = navigationEventRelay
+            self.titleTextRelay = titleTextRelay
+            self.descriptionTextRelay = descriptionTextRelay
+        }
+        
+        var navigationEvent: Signal<NavigationEventExchangeHome> {
+            return navigationEventRelay.asSignal(onErrorSignalWith: .empty())
+        }
+        
+        var titleText: Driver<String> {
+            return titleTextRelay.asDriver()
+        }
+        
+        var descriptionText: Driver<String> {
+            return descriptionTextRelay.asDriver()
+        }
     }
 }
-
