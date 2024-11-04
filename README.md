@@ -45,3 +45,23 @@ Testes Simples e Eficazes: Uso de Quick e Nimble para testes fáceis de entender
 ### Clonando o Repositório
 1. git clone https://github.com/PabloRosalvo/crypto_exchanges.git
 2. rodar pod install
+
+
+### Imagem abaixo é ilustrando os testes e cobertura 
+
+![Uploading Captura de Tela 2024-11-04 às 12.40.54.png…]()
+
+
+### Video abaixo é o fluxo de forma simples
+
+
+https://github.com/user-attachments/assets/db5e8138-7fb2-43e4-90cc-fb9afa7811d9
+
+
+
+https://github.com/user-attachments/assets/581644d6-c6ee-4a84-ad26-bda654484a79
+
+
+
+https://github.com/user-attachments/assets/9cd7ae9b-312f-46ce-af4b-8aadb0264d3b
+
