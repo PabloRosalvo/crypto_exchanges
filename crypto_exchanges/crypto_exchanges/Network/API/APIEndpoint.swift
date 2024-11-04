@@ -1,9 +1,10 @@
 import Foundation
 
-enum APIEndpoint {
+public enum APIEndpoint {
     case exchange
     case iconExchange
-    var path: String {
+    
+    public var path: String {
         switch self {
         case .exchange:
             return "/v1/exchanges"

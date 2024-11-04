@@ -27,8 +27,11 @@ class ExchangeCoordinator: Coordinator {
     
     func handleNavigation(event: NavigationEventExchangeList) {
         switch event {
-        case .goToListExchange(let model):
-            print(model.exchange)
+        case .goToListDetails(let model):
+            let modelObservable = Observable.just(model)
+            let exchangeCoordinator = ExchangeDetailsCoordinator(navigationController: navigationController)
+            childCoordinators.append(exchangeCoordinator)
+            exchangeCoordinator.start(with: modelObservable)
         }
     }
 }

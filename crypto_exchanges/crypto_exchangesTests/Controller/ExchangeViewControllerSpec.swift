@@ -26,13 +26,6 @@ class ExchangeViewControllerSpec: QuickSpec {
             it("should have a valid snapshot") {
                 expect(sut).toEventually(haveValidSnapshot(), timeout: .seconds(2))
             }
-            
-            
-            
-            
-            it("should have a valid snapshot") {
-                expect(sut).toEventually(haveValidSnapshot(), timeout: .seconds(2))
-            }
         }
     }
 }

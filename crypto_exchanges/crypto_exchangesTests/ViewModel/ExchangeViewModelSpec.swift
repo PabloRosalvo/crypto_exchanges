@@ -51,7 +51,6 @@ class ExchangeViewModelSpec: QuickSpec {
                 }
             }
             
-            
             describe("ExchangeViewModel") {
                 context("when selecting an exchange") {
                     it("should trigger navigation to exchange details") {
@@ -65,7 +64,7 @@ class ExchangeViewModelSpec: QuickSpec {
                         viewModel.input.selectedIndexRelay.accept(0)
 
                         expect(receivedNavigationEvent).toEventuallyNot(beNil())
-                        if case let .goToListExchange(details) = receivedNavigationEvent {
+                        if case let .goToListDetails(details) = receivedNavigationEvent {
                             expect(details.exchange.name).to(equal("OKCoin CNY"))
                          }
                     }

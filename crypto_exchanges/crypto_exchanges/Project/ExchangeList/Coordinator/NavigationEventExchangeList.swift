@@ -9,5 +9,5 @@
 import Foundation
 
 enum NavigationEventExchangeList {
-    case goToListExchange(_ model: ExchangeDetails)
+    case goToListDetails(_ model: ExchangeDetails)
 }

@@ -13,7 +13,9 @@ protocol ExchangeViewModelOutput {
     var filterOptions: Driver<[String]> { get }
     var error: Driver<String> { get }
     var navigationEvent: Signal<NavigationEventExchangeList> { get }
+    var isLoading: Driver<Bool> { get }
 }
+
 
 protocol ExchangeViewModelType {
     var input: ExchangeViewModelInput { get }

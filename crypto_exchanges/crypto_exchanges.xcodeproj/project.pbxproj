@@ -55,7 +55,6 @@
 		25C347052CD538A2003A4320 /* Exceptions for "crypto_exchanges" folder in "crypto_exchangesTests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				JsonMock/Exchange/DefaultExchangeAPIService.swift,
 				"JsonMock/Exchange/json-exchange.json",
 				"JsonMock/ExchangeIcon/exchange-icon.json",
 			);
@@ -64,7 +63,6 @@
 		25C347062CD538A2003A4320 /* Exceptions for "crypto_exchanges" folder in "crypto_exchangesUITests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				JsonMock/Exchange/DefaultExchangeAPIService.swift,
 				"JsonMock/Exchange/json-exchange.json",
 				"JsonMock/ExchangeIcon/exchange-icon.json",
 			);

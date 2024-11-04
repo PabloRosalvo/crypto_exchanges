@@ -10,6 +10,7 @@ protocol Coordinator: AnyObject {
 }
 
 extension Coordinator {
+    func start() {}
     func childDidFinish(_ child: Coordinator?) {
         for (index, coordinator) in childCoordinators.enumerated() {
             if coordinator === child {

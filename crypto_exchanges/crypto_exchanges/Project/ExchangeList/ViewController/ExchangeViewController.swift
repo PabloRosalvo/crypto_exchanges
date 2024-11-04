@@ -33,16 +33,33 @@ class ExchangeViewController: UIViewController, ViewConfiguration {
     func configureViews() {
         self.view.backgroundColor = UIColor.customBackground
         self.navigationItem.title = "Exchanges"
-        self.navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem()
-        self.navigationController?.navigationBar.tintColor = UIColor.customApp
+        
+        let closeButton = UIBarButtonItem(
+            image: UIImage(systemName: "xmark"),
+            style: .plain,
+            target: self,
+            action: #selector(closeButtonTapped)
+        )
+        
+        closeButton.tintColor = UIColor.customApp
+        
+        self.navigationItem.leftBarButtonItem = closeButton
+    }
+
+    @objc private func closeButtonTapped() {
+        self.navigationController?.popViewController(animated: true)
     }
     
     private func showErrorAlert(message: String) {
         let alert = UIAlertController(title: "Erro", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        
+        let okAction = UIAlertAction(title: "OK", style: .default) { [weak self] _ in
+            self?.navigationController?.popViewController(animated: true)
+        }
+        
+        alert.addAction(okAction)
         present(alert, animated: true, completion: nil)
     }
-    
 }
 extension ExchangeViewController {
     private func bind() {
@@ -79,6 +96,16 @@ extension ExchangeViewController {
             .drive(onNext: { [weak self] errorMessage in
                 guard !errorMessage.isEmpty else { return }
                 self?.showErrorAlert(message: errorMessage)
+            })
+            .disposed(by: disposeBag)
+        
+        viewModel.output.isLoading
+            .drive(onNext: { [weak self] isLoading in
+                if isLoading {
+                    LoadingView.startLoading(in: self?.view ?? UIView())
+                } else {
+                    LoadingView.stopLoading()
+                }
             })
             .disposed(by: disposeBag)
     }

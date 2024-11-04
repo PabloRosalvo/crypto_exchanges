@@ -10,6 +10,7 @@ class ExchangeViewModel: ExchangeViewModelType {
     private let selectedIndexRelay = PublishRelay<Int>()
     private let errorRelay = PublishRelay<String>()
     private let navigationRelay = PublishRelay<NavigationEventExchangeList>()
+    private let isLoadingRelay = BehaviorRelay<Bool>(value: false)
 
     var input: ExchangeViewModelInput {
         return Input(searchTextRelay: searchTextRelay,
@@ -22,7 +23,8 @@ class ExchangeViewModel: ExchangeViewModelType {
             exchangesWithIcons: createExchangesWithIcons(),
             filterOptions: createFilterOptions(),
             navigationEvent: navigationRelay.asSignal(onErrorSignalWith: .empty()),
-            error: errorRelay.asDriver(onErrorJustReturn: "")
+            error: errorRelay.asDriver(onErrorJustReturn: ""),
+            isLoading: isLoadingRelay.asDriver()
         )
     }
     
@@ -39,11 +41,11 @@ class ExchangeViewModel: ExchangeViewModelType {
             .withLatestFrom(createExchangesWithIcons()) { index, exchangesWithIcons in
                 let (exchange, icon) = exchangesWithIcons[index]
 
-                let exchangeDetailsDTO = ExchangeDetails(
+                let exchangeDetails = ExchangeDetails(
                     exchange: exchange,
                     icon: icon
                 )
-                return NavigationEventExchangeList.goToListExchange(exchangeDetailsDTO)
+                return NavigationEventExchangeList.goToListDetails(exchangeDetails)
             }
             .bind(to: navigationRelay)
             .disposed(by: disposeBag)
@@ -63,6 +65,7 @@ class ExchangeViewModel: ExchangeViewModelType {
     }
     
     private func fetchExchanges() {
+        isLoadingRelay.accept(true)
         apiService.fetchExchanges()
             .asObservable()
             .flatMap { [weak self] exchanges -> Observable<([Exchange], [ExchangeIcon])> in
@@ -73,11 +76,14 @@ class ExchangeViewModel: ExchangeViewModelType {
             }
             .catch { [weak self] error in
                 self?.handleError(error)
+                self?.isLoadingRelay.accept(false)
                 return Observable.just(([], []))
             }
             .subscribe(onNext: { [weak self] exchanges, icons in
                 self?.exchangesRelay.accept(exchanges)
                 self?.iconsRelay.accept(icons)
+            }, onCompleted: {
+                self.isLoadingRelay.accept(false)
             })
             .disposed(by: disposeBag)
     }

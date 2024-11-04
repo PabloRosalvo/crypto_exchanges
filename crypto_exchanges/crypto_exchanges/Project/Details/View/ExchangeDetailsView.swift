@@ -1,9 +1,20 @@
 import UIKit
+import RxSwift
+import RxCocoa
 import Kingfisher
 
-class ExchangeDetailsView: UIView {
+final class ExchangeDetailsView: UIView {
+    let exchangeNameRelay = BehaviorRelay<String?>(value: nil)
+    let exchangeWebsiteRelay = BehaviorRelay<String?>(value: nil)
+    let volume1DayRelay = BehaviorRelay<String?>(value: nil)
+    let dataSymbolsCountRelay = BehaviorRelay<String?>(value: nil)
+    let dataPeriodRelay = BehaviorRelay<String?>(value: nil)
+    let exchangeIconURLRelay = BehaviorRelay<String?>(value: nil)
+    let actionButtonTapped = PublishRelay<Void>()
     
-    private let exchangeIconImageView: UIImageView = {
+    let disposeBag = DisposeBag()
+    
+    let exchangeIconImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -12,42 +23,36 @@ class ExchangeDetailsView: UIView {
         return imageView
     }()
     
-    // Exchange Name
-    private let exchangeNameLabel: UILabel = {
+    let exchangeNameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 24)
         label.textColor = .darkGray
-        label.numberOfLines = 1
         return label
     }()
     
-    private let exchangeWebsiteButton: UIButton = {
+    let exchangeWebsiteButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitleColor(.blue, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         button.contentHorizontalAlignment = .left
-        button.addTarget(self, action: #selector(openWebsite), for: .touchUpInside)
         return button
     }()
     
-    // Volume (1 Day USD)
-    private let volume1DayLabel: UILabel = {
+    let volume1DayLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = .darkGray
         return label
     }()
     
-    // Data Symbols Count
-    private let dataSymbolsCountLabel: UILabel = {
+    let dataSymbolsCountLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = .darkGray
         return label
     }()
     
-    // Data Period (Start and End)
-    private let dataPeriodLabel: UILabel = {
+    let dataPeriodLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = .gray
@@ -55,8 +60,18 @@ class ExchangeDetailsView: UIView {
         return label
     }()
     
-    // StackView for layout
-    private lazy var mainStackView: UIStackView = {
+    private(set) lazy var actionButton: UIButton = {
+        let button = UIButton(frame: .zero)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Acessar o site", for: .normal)
+        button.backgroundColor = UIColor.customBackground
+        button.layer.cornerRadius = 18
+        button.layer.borderWidth = 1
+        button.layer.borderColor = UIColor.black.cgColor
+        button.setTitleColor(.black, for: .normal)
+        return button
+    }()
+    lazy var mainStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [
             exchangeIconImageView,
             exchangeNameLabel,
@@ -66,15 +81,16 @@ class ExchangeDetailsView: UIView {
             dataPeriodLabel
         ])
         stackView.axis = .vertical
-        stackView.spacing = 8
+        stackView.spacing = 16
         stackView.alignment = .leading
+        stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
-        setupConstraints()
+        setupBindings()
     }
     
     required init?(coder: NSCoder) {
@@ -82,40 +98,57 @@ class ExchangeDetailsView: UIView {
     }
     
     private func setupUI() {
+        backgroundColor = .white
+        
         addSubview(mainStackView)
-        mainStackView.translatesAutoresizingMaskIntoConstraints = false
-    }
-    
-    private func setupConstraints() {
+        addSubview(actionButton)
+        
         NSLayoutConstraint.activate([
-            mainStackView.topAnchor.constraint(equalTo: topAnchor, constant: 16),
+            mainStackView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
             mainStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             mainStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            mainStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16)
+            mainStackView.bottomAnchor.constraint(lessThanOrEqualTo: actionButton.topAnchor, constant: -16)
+        ])
+        
+        NSLayoutConstraint.activate([
+            actionButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            actionButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            actionButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -16),
+            actionButton.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
     
-    func updateView(with details: ExchangeDetails) {
-        exchangeNameLabel.text = details.exchange.name
-        exchangeWebsiteButton.setTitle("Acessar o site Oficial", for: .normal)
-        volume1DayLabel.text = "Volume (1 Day USD): \(details.exchange.volume1DayUSD ?? 0)"
-        dataSymbolsCountLabel.text = "Symbols Count: \(details.exchange.dataSymbolsCount ?? 0)"
+    private func setupBindings() {
+        exchangeNameRelay
+            .bind(to: exchangeNameLabel.rx.text)
+            .disposed(by: disposeBag)
         
-        if let start = details.exchange.dataTradeStart, let end = details.exchange.dataTradeEnd {
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateStyle = .medium
-            dataPeriodLabel.text = "Data Period: \(dateFormatter.string(from: start)) - \(dateFormatter.string(from: end))"
-        }
+        exchangeWebsiteRelay
+            .bind(to: exchangeWebsiteButton.rx.title(for: .normal))
+            .disposed(by: disposeBag)
         
-        if let iconUrl = details.icon?.url {
-            let placeholder = UIImage(named: "loading-placeholder")
-            exchangeIconImageView.kf.setImage(with: URL(string: iconUrl), placeholder: placeholder)
-        }
-    }
-    
-    @objc private func openWebsite() {
-        if let website = exchangeWebsiteButton.title(for: .normal), let url = URL(string: website) {
-            UIApplication.shared.open(url)
-        }
+        volume1DayRelay
+            .bind(to: volume1DayLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        dataSymbolsCountRelay
+            .bind(to: dataSymbolsCountLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        dataPeriodRelay
+            .bind(to: dataPeriodLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        exchangeIconURLRelay
+            .subscribe(onNext: { [weak self] urlString in
+                guard let urlString = urlString, let url = URL(string: urlString) else { return }
+                let placeholder = UIImage(named: "loading-placeholder")
+                self?.exchangeIconImageView.kf.setImage(with: url, placeholder: placeholder)
+            })
+            .disposed(by: disposeBag)
+        
+        actionButton.rx.tap
+            .bind(to: actionButtonTapped)
+            .disposed(by: disposeBag)
     }
 }
