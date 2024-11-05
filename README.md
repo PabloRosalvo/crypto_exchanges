@@ -40,7 +40,7 @@ Testes Simples e Eficazes: Uso de Quick e Nimble para testes fáceis de entender
 ### Simplicidade para baixar e rodar o projeto:
 1. **Baixar o projeto**: O download do projeto é simples e rápido. Basta seguir os comandos abaixo.
 2. **Configuração fácil**: O projeto está pronto para ser rodado com um simples comando, tornando a instalação descomplicada.
-3. **Compatibilidade**: O projeto foi desenvolvido e testado para funcionar com o Xcode 16 e iOS 15 garantindo uma experiência fluida.
+3. **Compatibilidade**: O projeto foi desenvolvido e testado para funcionar com o Xcode 15.4 e iOS 13 garantindo uma experiência fluida.
 
 ### Clonando o Repositório
 1. git clone https://github.com/PabloRosalvo/crypto_exchanges.git
