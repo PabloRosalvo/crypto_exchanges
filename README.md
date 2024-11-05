@@ -33,8 +33,8 @@ Testes Simples e Eficazes: Uso de Quick e Nimble para testes fáceis de entender
 
 ## Instalação
 ### Pré-requisitos:
-- **Version 16.1 (16B40)** 
-- **iOS 15.6** ou superior
+- **Version 15.4 (16B40)** 
+- **iOS 13.0** ou superior
 - **Cocoapods** 
 
 ### Simplicidade para baixar e rodar o projeto:
